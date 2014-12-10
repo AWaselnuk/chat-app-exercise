@@ -1,0 +1,11 @@
+{
+  "name": "chat-app-exercise",
+  "version": "0.0.1",
+  "description": "Exercise from http://socket.io/get-started/chat/",
+  "dependencies": {
+    "express": "^4.10.2"
+  },
+  "devDependencies": {
+    "socket.io": "^1.2.1"
+  }
+}

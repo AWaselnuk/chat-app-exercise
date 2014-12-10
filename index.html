@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Chat App Exercise</title>
+    <link rel="stylesheet" href="styles/app.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+  </head>
+  <body>
+    <ul id="messages"></ul>
+
+    <form id="form-chat" action="/formyplace">
+      <input id="m" autocomplete="off"><button type="submit">Send</button>
+    </form>
+
+    <script>
+
+      $(document).ready(function(){
+        var socket = io();
+
+        $('#form-chat').submit(function(e){
+          e.preventDefault();
+
+          var msgElem = $('#m');
+          var msg = msgElem.val();
+
+          console.log(msg);
+          // Emit a message with socket.io
+          // THIS BREAKS. THE FORM SUBMISSION EVENT GOES THROUGH AGAIN!!
+          // socket.emit('chat message', m);
+
+          msgElem.val('');
+
+        });
+      });
+    </script>
+  </body>
+</html>
