@@ -23,9 +23,9 @@ io.on('connection', function(socket){
     console.log('a user disconnected');
   });
 
-  // Notify when a chat message is received
+  // Emit message to every when chat message is received
   socket.on('chat message', function(msg){
-    console.log('chat message received: ' + msg);
+    io.emit('chat message', msg);
   });
 });
 
