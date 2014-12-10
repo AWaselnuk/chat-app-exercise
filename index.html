@@ -13,8 +13,6 @@
       <input id="m" autocomplete="off"><button type="submit">Send</button>
     </form>
 
-    <button id="test-emit">Clickity</button>
-
     <script>
 
       $(document).ready(function(){
@@ -22,21 +20,11 @@
 
         $('#form-chat').submit(function(e){
           e.preventDefault();
-
           var msgElem = $('#m');
           var msg = msgElem.val();
-
-          console.log(msg);
           // Emit a message with socket.io
-          // THIS BREAKS. THE FORM SUBMISSION EVENT GOES THROUGH AGAIN!!
-          // socket.emit('chat message', m);
-
+          socket.emit('chat message', msg);
           msgElem.val('');
-
-        });
-
-        $('#test-emit').click(function(){
-          socket.emit('chat message', 'Test chat message emission');
         });
 
         socket.on('chat message', function(msg){
